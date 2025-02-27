@@ -1,0 +1,8 @@
+.env
+.idea/
+htmlcov
+postgres-data
+docs
+test.db
+__pycache__/
+*~
