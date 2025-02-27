@@ -4,5 +4,9 @@ htmlcov
 postgres-data
 docs
 test.db
-__pycache__/
 *~
+.coverage
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
