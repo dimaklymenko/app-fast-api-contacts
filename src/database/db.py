@@ -3,11 +3,15 @@ import contextlib
 from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, async_sessionmaker, create_async_engine
 
 from src.conf.config import config
+import logging
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 class DatabaseSessionManager:
     def __init__(self, url: str):
-        self._engine: AsyncEngine | None = create_async_engine(url, connect_args={"ssl": "require"})
+        logger.info(f"Connecting to database: {url}")  # Додати лог
+        self._engine: AsyncEngine | None = create_async_engine(url)
         self._session_maker: async_sessionmaker = async_sessionmaker(autoflush=False, autocommit=False,
                                                                      bind=self._engine)
 
